@@ -60,7 +60,21 @@ export default class App extends Component {
       }
     });
   }
-
+  
+  onFiltered = (label) => {
+    const newArray = this.state.todoData.filter( (item) => {
+      if(item.label.toLowerCase().indexOf(label.toLowerCase()) >= 0) {
+        return item;
+      } 
+    });
+    console.log(newArray);
+    this.setState(({todoData}) => {
+      return {
+        todoData: newArray
+      } 
+    })
+  }
+  
   toggleProperty(arr, id, propKey) {
     const idx = arr.findIndex( (el) => el.id === id );
     const oldItem = arr[idx];
@@ -88,17 +102,7 @@ export default class App extends Component {
       } 
     });
   }
-  searchItem = (label) => {
-  //   const findItem = new RegExp([label].toLowerCase);
-  //   const someObj;
-  //   const newArray = this.state.todoData.filter( (item) => {
-  //     someObj = {...item};
-  //     someObj.label.search(findItem) > -1;
-  //   });
-    
-  //   //console.log(findItem)
-  //   console.log(newArray)
-  }
+
 
   render() {
     
@@ -110,7 +114,7 @@ export default class App extends Component {
         <AppHeader toDo={ todoCount } done={ doneCount } />
         <div className="top-panel d-flex">
           <SearchPanel 
-            onFilter={this.searchItem}
+            filterItem={this.onFiltered}
           />
           <ItemStatusFilter />
         </div>

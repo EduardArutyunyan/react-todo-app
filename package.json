@@ -2,9 +2,8 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eduardarutyunyan.github.io/todo-app/",
+  "homepage": "https://eduardarutyunyan.github.io/react-todo-app",
   "dependencies": {
-    "gh-pages": "^2.2.0",
     "predeploy-builder": "^1.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -21,7 +20,7 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
+      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
@@ -29,5 +28,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }

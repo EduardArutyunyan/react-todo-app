@@ -7,20 +7,28 @@ export default class SearchPanel extends Component {
     label: ''
   }
   
-  onLableChange = (event) => {
+  onLabelChange = (event) => {
+    this.setState({
+      label: ''
+    })
     this.setState({ 
         label: event.target.value 
     });
   }
+  onFilter = () => {
+    this.props.filterItem(this.state.label);
+    
+  }
   
   render() {
+    
     return (
       <form className="search-panel-form" 
-      onChange={this.props.onFilter(this.state.label)}>
+      onChange={this.onFilter}>
         <input type="text"
                   className="form-control search-input"
                   placeholder="type to search" 
-                  onChange={this.onLableChange}
+                  onChange={this.onLabelChange}
                   value={this.state.label}/>
       </form>
     );
