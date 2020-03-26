@@ -75,7 +75,6 @@ export default class App extends Component {
           .toLowerCase()
           .indexOf(text.toLowerCase()) > -1;
     });
-    
   }
   
   toggleProperty(arr, id, propKey) {
@@ -114,7 +113,6 @@ export default class App extends Component {
 
     const doneCount = todoData.filter((el) => el.done).length;
     const todoCount = todoData.length - doneCount;
-    
     
     return (
       <div className="todo-app">
